@@ -3,6 +3,7 @@ package com.wan.example.user;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
 
@@ -21,5 +22,7 @@ public class User {
     @Column(name = "email")
     public String email;
 
+//    @Column(name = "notnull", nullable = false)
+//    public String notNull;
 
 }

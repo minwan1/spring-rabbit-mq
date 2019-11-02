@@ -15,8 +15,8 @@ public class TestService {
 
     @Transactional
     public void test(){
-        applicationEventPublisher.publishEvent(new TestSuccessEvent("zxc"));
-        System.out.println("sdfasdfsdf");
+//        applicationEventPublisher.publishEvent(new TestSuccessEvent("zxc1111mmmmmmmmmmmmmmm", new User("fisrtname", "lastname")));
+        applicationEventPublisher.publishEvent(new EmailEvent("test@test.com"));
 
     }
 }

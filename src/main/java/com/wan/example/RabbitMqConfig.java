@@ -27,7 +27,7 @@ public class RabbitMqConfig {
 
     @Bean
     Queue queue(){ // rabitmq 등록
-        return new Queue(queue, false);
+        return new Queue(queue, true);
     }
 
     @Bean
@@ -55,16 +55,18 @@ public class RabbitMqConfig {
         RabbitTemplate rabbitTemplate = new RabbitTemplate(rabbitConnectionFactory());
         rabbitTemplate.setQueue(queue);
         rabbitTemplate.setMandatory(true);
+        rabbitTemplate.isChannelTransacted();
         rabbitTemplate.setChannelTransacted(true);
+        rabbitTemplate.re
         return rabbitTemplate;
     }
 
-//    @Bean
-//    public MessageListener exampleListener() {
-//        return new MessageListener() {
-//            public void onMessage(Message message) {
-//                System.out.println("received: " + message);
-//            }
-//        };
-//    }
+    @Bean
+    public MessageListener exampleListener() {
+        return new MessageListener() {
+            public void onMessage(Message message) {
+                System.out.println("received: " + message);
+            }
+        };
+    }
 }

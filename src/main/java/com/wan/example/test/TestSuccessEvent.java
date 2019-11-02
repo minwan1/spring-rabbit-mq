@@ -9,38 +9,18 @@ import java.lang.reflect.Field;
 public class TestSuccessEvent {
 
     private String test;
+    private User user;
 
-    public TestSuccessEvent(String test) {
+    public TestSuccessEvent(String test, User user) {
         this.test = test;
+        this.user = user;
     }
 
     public String getTest() {
         return test;
     }
 
-
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-
-        Class<?> thisClass = null;
-        try {
-            thisClass = Class.forName(this.getClass().getName());
-
-            Field[] aClassFields = thisClass.getDeclaredFields();
-            sb.append(this.getClass().getSimpleName() + " [ ");
-            for(Field f : aClassFields){
-                String fName = f.getName();
-                sb.append("(" + f.getType() + ") " + fName + " = " + f.get(this) + ", ");
-            }
-            sb.append("]");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return sb.toString();
+    public User getUser() {
+        return user;
     }
-
-
-
 }

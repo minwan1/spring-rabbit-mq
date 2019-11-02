@@ -1,0 +1,13 @@
+version: '3'
+services:
+
+  mysql:
+   container_name: study.docker-wan.mysql
+   image: mysql/mysql-server:5.6
+   environment:
+    MYSQL_DATABASE: test
+    MYSQL_ROOT_HOST: '%'
+    MYSQL_ROOT_PASSWORD: password
+   ports:
+   - "3306:3306"
+   restart: always

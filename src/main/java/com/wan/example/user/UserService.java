@@ -18,14 +18,13 @@ public class UserService {
 
 
     public User createUser(final User user){
-        final User save = userRepository.save(user);
 //        applicationEventPublisher.publishEvent(new UserRegistrationEvent("jinminwan"));
 
 
 
-        rabbitTemplate.convertAndSend("spring-boot", "12345");
-
-        if(true) throw new RuntimeException();
+        rabbitTemplate.convertAndSend("spring-boot", user.getEmail());
+//        if(true) throw new RuntimeException();
+        final User save = userRepository.save(user);
         return save;
     }
 
